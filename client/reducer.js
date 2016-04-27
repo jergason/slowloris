@@ -5,6 +5,7 @@ export default function(state, action) {
     return defaultState()
   }
 
+  try {
   switch (action.type) {
     case 'INCREMENT':
       return map(state, (item, i) => {
@@ -30,10 +31,14 @@ export default function(state, action) {
     default:
       return state
   }
+  } catch (e) {
+    console.error('e', e.stack)
+    return state
+  }
 }
 
 function defaultState() {
-  return range(2000).map(function() {
+  return range(1000).map(function() {
     return {
       name: '',
       count: 0

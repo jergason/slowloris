@@ -1,12 +1,9 @@
 export function increment(i) {
-  console.log('increment?')
   return {
     type: 'INCREMENT',
     i
   }
 }
-
-console.log('increment is', increment)
 
 export function decrement(i) {
   return {
