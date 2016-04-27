@@ -1,14 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import Perf from 'react-addons-perf'
-window.Perf = Perf
+import {connect, Provider} from 'react-redux'
+import {createStore} from 'redux'
+import reducer from './reducer'
+import App from './list'
 
-function Yup(props) {
-  return (
-    <h1>WE DID IT</h1>
-  )
-}
+let store = createStore(reducer)
+
+window.Perf = Perf
 
 let container = document.querySelector('.app')
 
-ReactDOM.render(<Yup />, container)
+ReactDOM.render(<Provider store={store}><App /></Provider>, container)
